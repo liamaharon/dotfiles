@@ -1,0 +1,42 @@
+# Config options
+# https://github.com/tmcdonell/config-alacritty/blob/master/alacritty.yml
+
+import:
+  # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  - ~/.config/alacritty/themes/themes/rose-pine-moon.yaml
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+  size: 14.0
+
+keybindings:
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;6u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;6u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;6u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;6u" }
+
+  - { key: I, mods: Control, chars: "\x1b[105;5u" }
+
+  - { key: Period, mods: Control, chars: "\x1b[46;5u" }
+  - { key: Comma, mods: Control, chars: "\x1b[44;5u" }
+  - { key: Semicolon, mods: Control, chars: "\x1b[59;5u" }
+
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
+
+window:
+  decorations: "none"

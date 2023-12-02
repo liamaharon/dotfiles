@@ -1,0 +1,17 @@
+[user]
+	email = liam.aharon@hotmail.com
+	name = Liam Aharon
+  signingkey = 0x075D5555A885CC88A07FB26AEDD5DC32959D341F
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
