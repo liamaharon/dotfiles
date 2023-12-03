@@ -1,6 +1,5 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- Default keymaps: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 -- Resizing panes
 vim.keymap.set("n", "<C-n>", "5<C-w><", { desc = "Decrease window width", noremap = true, silent = true })
