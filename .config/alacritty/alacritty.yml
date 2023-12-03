@@ -3,7 +3,7 @@
 
 import:
   # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-  - ~/.config/alacritty/themes/themes/rose-pine-moon.yaml
+  - ~/.config/alacritty/themes/themes/rose-pine.yaml
 
 font:
   normal:
