@@ -4,6 +4,7 @@ return {
     servers = {
       taplo = { enabled = false },
       rust_analyzer = {
+        cmd = { "/Users/liamaharon/grimoire/ra-multiplex/target/release/ra-multiplex", "client" },
         settings = {
           ["rust-analyzer"] = {
             cargo = {
