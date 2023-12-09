@@ -8,9 +8,9 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = {
-      -- explicitly require opening complete window
+      -- don't auto select items (expanding) in the completion menu
       completion = {
-        autocomplete = false,
+        completeopt = "menu,menuone,noselect",
       },
       -- make sure lsp suggestions are always first
       sources = require("cmp").config.sources({
