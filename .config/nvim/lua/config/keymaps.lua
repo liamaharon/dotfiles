@@ -5,6 +5,12 @@
 vim.keymap.set("n", "<C-n>", "5<C-w><", { desc = "Decrease window width", noremap = true, silent = true })
 vim.keymap.set("n", "<C-m>", "5<C-w>>", { desc = "Increase window width", noremap = true, silent = true })
 
+-- Yeet
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
 -- Crates package keymaps
 local crates = require("crates")
 local wk = require("which-key")
