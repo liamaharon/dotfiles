@@ -37,7 +37,7 @@ return {
               },
             },
             rustfmt = {
-              extraArgs = { "+nightly-2023-11-01" },
+              extraArgs = { "+nightly-2024-01-22" },
             },
           },
         },
