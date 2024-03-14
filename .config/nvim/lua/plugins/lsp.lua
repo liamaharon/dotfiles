@@ -1,22 +1,29 @@
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    servers = {
-      taplo = { enabled = false },
-      rust_analyzer = {
-        -- disable ra-multiplex until it gets more stable
-        -- cmd = vim.lsp.rpc.connect("127.0.0.1", 27631),
-        -- init_options = {
-        --   lspMux = {
-        --     version = "1",
-        --     method = "connect",
-        --     server = "rust-analyzer",
-        --   },
-        -- },
-        settings = {
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<leader>cR", function()
+            vim.cmd.RustLsp("codeAction")
+          end, { desc = "Code Action", buffer = bufnr })
+          vim.keymap.set("n", "<leader>dr", function()
+            vim.cmd.RustLsp("debuggables")
+          end, { desc = "Rust debuggables", buffer = bufnr })
+        end,
+        default_settings = {
           ["rust-analyzer"] = {
+            semanticHighlighting = {
+              doc = {
+                comment = {
+                  inject = { enable = true },
+                },
+              },
+            },
             rust = {
-              analyzerTargetDir = "target/nvim-rust-analyzer",
+              analyzerTargetDir = "target/rust-analyzer",
             },
             diagnostics = { disabled = { "unresolved-proc-macro" } },
             server = {
@@ -27,10 +34,10 @@ return {
             },
             cargo = {
               -- Sets env and --all-features when running locally
-              -- extraEnv = {
-              --   ["SKIP_WASM_BUILD"] = "1",
-              -- },
-              -- features = "all",
+              extraEnv = {
+                ["SKIP_WASM_BUILD"] = "1",
+              },
+              features = "all",
 
               -- Run RA on remote
               buildScripts = {
@@ -45,13 +52,15 @@ return {
                   "--message-format=json",
                   "--all-targets",
                   "--all-features",
+                  "--tests",
+                  "--target-dir=target/rust-analyzer",
                 },
               },
             },
             check = {
               -- Run RA locally
-              -- allTargets = true,
-              -- command = "check",
+              allTargets = true,
+              command = "check",
 
               -- Run RA on remote
               overrideCommand = {
@@ -65,6 +74,8 @@ return {
                 "--message-format=json",
                 "--all-targets",
                 "--all-features",
+                "--tests",
+                "--target-dir=target/rust-analyzer",
               },
             },
             checkOnSave = true,
@@ -81,6 +92,17 @@ return {
             },
           },
         },
+      },
+    },
+    config = function(_, opts)
+      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        taplo = { enabled = false },
       },
     },
   },
