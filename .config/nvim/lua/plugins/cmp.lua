@@ -13,6 +13,11 @@ return {
       local defaults = require("cmp.config.default")()
       return {
         -- don't auto select items (expanding) in the completion menu
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
         completion = {
           completeopt = "menu,menuone,noselect",
         },
