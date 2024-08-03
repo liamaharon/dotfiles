@@ -15,16 +15,6 @@ return {
         end,
         default_settings = {
           ["rust-analyzer"] = {
-            semanticHighlighting = {
-              doc = {
-                comment = {
-                  inject = { enable = true },
-                },
-              },
-            },
-            rust = {
-              analyzerTargetDir = "target/rust-analyzer",
-            },
             diagnostics = { disabled = { "unresolved-proc-macro" } },
             server = {
               extraEnv = {
@@ -33,29 +23,29 @@ return {
               },
             },
             cargo = {
-              -- Sets env and --all-features when running locally
+              targetDir = "target/rust-analyzer",
               extraEnv = {
                 ["SKIP_WASM_BUILD"] = "1",
               },
               features = "all",
 
               -- Run RA on remote
-              buildScripts = {
-                overrideCommand = {
-                  "cargo",
-                  "remote",
-                  "--build-env",
-                  "SKIP_WASM_BUILD=1",
-                  "--",
-                  "check",
-                  "--workspace",
-                  "--message-format=json",
-                  "--all-targets",
-                  "--all-features",
-                  "--tests",
-                  "--target-dir=target/rust-analyzer",
-                },
-              },
+              -- buildScripts = {
+              --   overrideCommand = {
+              --     "cargo",
+              --     "remote",
+              --     "--build-env",
+              --     "SKIP_WASM_BUILD=1",
+              --     "--",
+              --     "check",
+              --     "--workspace",
+              --     "--message-format=json",
+              --     "--all-targets",
+              --     "--all-features",
+              --     "--tests",
+              --     "--target-dir=target/rust-analyzer",
+              --   },
+              -- },
             },
             check = {
               -- Run RA locally
@@ -63,20 +53,20 @@ return {
               command = "check",
 
               -- Run RA on remote
-              overrideCommand = {
-                "cargo",
-                "remote",
-                "--build-env",
-                "SKIP_WASM_BUILD=1",
-                "--",
-                "check",
-                "--workspace",
-                "--message-format=json",
-                "--all-targets",
-                "--all-features",
-                "--tests",
-                "--target-dir=target/rust-analyzer",
-              },
+              -- overrideCommand = {
+              --   "cargo",
+              --   "remote",
+              --   "--build-env",
+              --   "SKIP_WASM_BUILD=1",
+              --   "--",
+              --   "check",
+              --   "--workspace",
+              --   "--message-format=json",
+              --   "--all-targets",
+              --   "--all-features",
+              --   "--tests",
+              --   "--target-dir=target/rust-analyzer",
+              -- },
             },
             checkOnSave = true,
             procMacro = {
