@@ -15,13 +15,6 @@ vim.keymap.set("n", "{", "{zzzv")
 
 -- Crates package keymaps
 local crates = require("crates")
-local wk = require("which-key")
-wk.register({
-  c = {
-    name = "crates",
-  },
-}, { prefix = "<leader>c" })
-vim.keymap.set("n", "<leader>cc", "", { desc = "Crates", silent = true })
 vim.keymap.set("n", "<leader>cct", crates.toggle, { desc = "Crates Toggle", silent = true })
 vim.keymap.set("n", "<leader>ccr", crates.reload, { desc = "Crates Reload", silent = true })
 
