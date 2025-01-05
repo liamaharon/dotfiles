@@ -45,3 +45,20 @@ vim.keymap.set("n", "<leader>cch", crates.open_homepage, { desc = "Crates Open H
 vim.keymap.set("n", "<leader>ccr", crates.open_repository, { desc = "Crates Open Repository", silent = true })
 vim.keymap.set("n", "<leader>ccd", crates.open_documentation, { desc = "Crates Open Documentation", silent = true })
 vim.keymap.set("n", "<leader>ccc", crates.open_crates_io, { desc = "Crates Open crates.io", silent = true })
+
+local function close_all_buffers_except_current()
+  local bufs = vim.api.nvim_list_bufs()
+  local current_buf = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(bufs) do
+    if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+end
+
+vim.keymap.set(
+  "n",
+  "<leader>bc",
+  close_all_buffers_except_current,
+  { desc = "Close all buffers except current", silent = true }
+)
