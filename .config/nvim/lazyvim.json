@@ -4,6 +4,7 @@
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.editor.harpoon2",
     "lazyvim.plugins.extras.editor.leap",
+    "lazyvim.plugins.extras.editor.outline",
     "lazyvim.plugins.extras.lang.elixir",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.json",
@@ -14,8 +15,9 @@
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.ui.mini-indentscope",
     "lazyvim.plugins.extras.ui.treesitter-context",
-    "lazyvim.plugins.extras.util.project",
-    "lazyvim.plugins.extras.editor.outline"
+    "lazyvim.plugins.extras.util.dot",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.util.project"
   ],
   "news": {
     "NEWS.md": "6520"

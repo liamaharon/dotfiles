@@ -1,75 +1,37 @@
 return {
   {
     "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
     opts = {
       server = {
-        on_attach = function(_, bufnr)
-          vim.keymap.set("n", "<leader>cR", function()
-            vim.cmd.RustLsp("codeAction")
-          end, { desc = "Code Action", buffer = bufnr })
-          vim.keymap.set("n", "<leader>dr", function()
-            vim.cmd.RustLsp("debuggables")
-          end, { desc = "Rust debuggables", buffer = bufnr })
-        end,
         default_settings = {
           ["rust-analyzer"] = {
-            diagnostics = { disabled = { "unresolved-proc-macro" } },
-            server = {
-              extraEnv = {
-                ["CHALK_OVERFLOW_DEPTH"] = "100000000",
-                ["CHALK_SOLVER_MAX_SIZE"] = "100000000",
+            diagnostics = { disabled = { "unresolved-macro-call" } },
+            check = {
+              -- Run RA on remote
+              overrideCommand = {
+                "crunch",
+                "-e",
+                "SKIP_WASM_BUILD=1",
+                "c",
+                "--message-format=json",
+                "--all-features",
+                "--all-targets",
+                "--target-dir=target/ra",
               },
             },
             cargo = {
-              targetDir = "target/rust-analyzer",
+              targetDir = "target/ra",
               extraEnv = {
                 ["SKIP_WASM_BUILD"] = "1",
               },
               features = "all",
-
-              -- Run RA on remote
-              -- buildScripts = {
-              --   overrideCommand = {
-              --     "cargo",
-              --     "remote",
-              --     "--build-env",
-              --     "SKIP_WASM_BUILD=1",
-              --     "--",
-              --     "check",
-              --     "--workspace",
-              --     "--message-format=json",
-              --     "--all-targets",
-              --     "--all-features",
-              --     "--tests",
-              --     "--target-dir=target/rust-analyzer",
-              --   },
-              -- },
-            },
-            check = {
-              -- Run RA locally
-              allTargets = true,
-              command = "check",
-
-              -- Run RA on remote
-              -- overrideCommand = {
-              --   "cargo",
-              --   "remote",
-              --   "--build-env",
-              --   "SKIP_WASM_BUILD=1",
-              --   "--",
-              --   "check",
-              --   "--workspace",
-              --   "--message-format=json",
-              --   "--all-targets",
-              --   "--all-features",
-              --   "--tests",
-              --   "--target-dir=target/rust-analyzer",
-              -- },
+              buildScripts = {
+                enable = true,
+              },
             },
             checkOnSave = true,
             procMacro = {
+              enable = true,
               ignored = {
                 ["async-trait"] = { "async_trait" },
                 ["napi-derive"] = { "napi" },
@@ -78,26 +40,24 @@ return {
               },
             },
             rustfmt = {
-              extraArgs = { "+nightly-2024-04-09" },
+              extraArgs = { "+nightly" },
             },
           },
         },
       },
     },
-    config = function(_, opts)
-      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-    end,
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
-      setup = {
-        rust_analyzer = function()
-          return true
-        end,
-      },
+      -- setup = {
+      --   rust_analyzer = function()
+      --     return true
+      --   end,
+      -- },
       servers = {
         taplo = { enabled = false },
+        rust_analyzer = { enabled = false },
       },
     },
   },
