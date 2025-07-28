@@ -3,6 +3,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       icons = {
+        kinds = { Copilot = "C" },
         diagnostics = {
           Error = "E ",
           Warn = "W ",
