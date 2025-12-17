@@ -157,3 +157,21 @@ if [ -f '/Users/liamaharon/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/liam
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/liamaharon/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/liamaharon/google-cloud-sdk/completion.zsh.inc'; fi
+
+export CARGO_BUILD_JOBS=12
+
+export PATH=$PATH:$HOME/go/bin
+# enable go caching
+export DOCKER_BUILDKIT=1
+export DEVNET_BUILDER=1
+
+
+export PATH=$PATH:$HOME/grimoire/cargo-crunch/target/release
+
+
+export PATH="$HOME/.pyenv/shims:$PATH"
+eval "$(pyenv init --path)"
+
+eval $(thefuck --alias)
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
