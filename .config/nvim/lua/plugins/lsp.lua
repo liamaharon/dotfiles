@@ -2,22 +2,24 @@ return {
   {
     "mrcjkb/rustaceanvim",
     opts = {
+      -- ra_multiplex = { enable = true },
       server = {
         default_settings = {
           ["rust-analyzer"] = {
             diagnostics = { disabled = { "unresolved-macro-call" } },
             check = {
+              features = "all",
               -- Run RA on remote
-              overrideCommand = {
-                "crunch",
-                "-e",
-                "SKIP_WASM_BUILD=1",
-                "c",
-                "--message-format=json",
-                "--all-features",
-                "--all-targets",
-                "--target-dir=target/ra",
-              },
+              -- overrideCommand = {
+              --   "crunch",
+              --   "-e",
+              --   "SKIP_WASM_BUILD=1",
+              --   "c",
+              --   "--message-format=json",
+              --   "--all-features",
+              --   -- "--target wasm32-unknown-unknown",
+              --   "--target-dir=target/ra",
+              -- },
             },
             cargo = {
               targetDir = "target/ra",
@@ -47,18 +49,18 @@ return {
       },
     },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- setup = {
-      --   rust_analyzer = function()
-      --     return true
-      --   end,
-      -- },
-      servers = {
-        taplo = { enabled = false },
-        rust_analyzer = { enabled = false },
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     setup = {
+  --       rust_analyzer = function()
+  --         return true
+  --       end,
+  --     },
+  --     servers = {
+  --       taplo = { enabled = false },
+  --       -- rust_analyzer = { enabled = false },
+  --     },
+  --   },
+  -- },
 }
