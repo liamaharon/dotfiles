@@ -12,3 +12,5 @@
 	autoSetupRemote = true
 [submodule]
 	recurse = true
+[lfs]
+	concurrenttransfers = 32
