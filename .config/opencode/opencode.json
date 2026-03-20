@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["@mohak34/opencode-notifier@latest"],
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "sudo *": "ask",
+      "rm *": "ask",
+      "dd *": "ask",
+      "mkfs*": "ask",
+      "diskutil erase*": "ask",
+      "shutdown *": "ask",
+      "reboot*": "ask",
+      "halt*": "ask",
+      "poweroff*": "ask",
+      "git push*": "ask",
+      "git reset*": "ask",
+      "git clean*": "ask",
+      "git checkout --*": "ask",
+      "git restore --source*": "ask",
+      "git branch -D*": "ask"
+    }
+  }
+}
