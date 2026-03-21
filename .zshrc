@@ -175,3 +175,7 @@ eval "$(pyenv init --path)"
 eval $(thefuck --alias)
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# opencode
+export PATH=/Users/liamaharon/.opencode/bin:$PATH
+
