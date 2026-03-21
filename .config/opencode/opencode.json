@@ -2,6 +2,21 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["@mohak34/opencode-notifier@latest"],
   "permission": {
+    "read": {
+      "/Users/liamaharon/.cargo/registry/**": "allow"
+    },
+    "glob": {
+      "/Users/liamaharon/.cargo/registry/**": "allow"
+    },
+    "grep": {
+      "/Users/liamaharon/.cargo/registry/**": "allow"
+    },
+    "list": {
+      "/Users/liamaharon/.cargo/registry/**": "allow"
+    },
+    "external_directory": {
+      "/Users/liamaharon/.cargo/registry/**": "allow"
+    },
     "bash": {
       "*": "allow",
       "sudo *": "ask",
