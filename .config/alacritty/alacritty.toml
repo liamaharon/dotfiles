@@ -21,3 +21,17 @@ style = "Regular"
 
 [window]
 decorations = "none"
+
+[keyboard]
+bindings = [
+  { key = "0", mods = "Command", chars = "\u001bOj" },
+  { key = "1", mods = "Command", chars = "\u001bOa" },
+  { key = "2", mods = "Command", chars = "\u001bOb" },
+  { key = "3", mods = "Command", chars = "\u001bOc" },
+  { key = "4", mods = "Command", chars = "\u001bOd" },
+  { key = "5", mods = "Command", chars = "\u001bOe" },
+  { key = "6", mods = "Command", chars = "\u001bOf" },
+  { key = "7", mods = "Command", chars = "\u001bOg" },
+  { key = "8", mods = "Command", chars = "\u001bOh" },
+  { key = "9", mods = "Command", chars = "\u001bOi" },
+]
