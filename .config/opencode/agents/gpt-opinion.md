@@ -2,7 +2,7 @@
 description: Independent GPT opinion analyst for read-only planning, debugging, and review tasks
 mode: subagent
 hidden: true
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 temperature: 0.1
 permission:
   read: allow
